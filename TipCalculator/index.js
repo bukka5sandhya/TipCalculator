@@ -1,0 +1,25 @@
+let billAmountElement = document.getElementById("billAmount");
+let percentageTipElement = document.getElementById("percentageTip");
+let tipAmountElement = document.getElementById("tipAmount");
+let totalAmountElement = document.getElementById("totalAmount");
+let errorMessageElement = document.getElementById("errorMessage");
+let errorMessage = "Please Enter a Valid Input";
+
+function calculateTip() {
+    let billAmountInputValue = billAmountElement.value;
+    let percentageTipInputValue = percentageTipElement.value;
+    if (billAmountInputValue === "") {
+        errorMessageElement.textContent = errorMessage;
+    } else if (percentageTipInputValue === "") {
+        errorMessageElement.textContent = errorMessage;
+    } else {
+        errorMessageElement.textContent = "";
+        let billAmount = parseInt(billAmountInputValue);
+        let percentageTip = parseInt(percentageTipInputValue);
+        let calculateTip = (percentageTip / 100) * billAmount;
+        let calculatedTotal = billAmount + calculateTip;
+        tipAmountElement.value = calculateTip;
+        totalAmountElement.value = calculatedTotal;
+
+    }
+}
